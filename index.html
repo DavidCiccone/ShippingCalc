@@ -1,0 +1,133 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Shipping Calculator</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <!-- Add your site or application content here -->
+    <h1>Shipping Calculator</h1>
+    <h3>Shipping Method: USPS Ground</h3>
+    <div id="template" class="block xxx">
+        <p class="numbers"></p>
+        <input type="number" min="0" class="input2 weight-change" value="1" name="weight" id="weight" required/> =
+        <input class="width onebox clear" name="shipprice1box" disabled/> x
+        <input type="number" min="0" class="input2 numofbox" value="1" name="numberofboxes" required/> =
+        <input class="width totalfl" name="totalforallboxes" disabled/>
+        <img src="img/cancel3.png" alt="remove" class="remove" onclick="removeLine(this.parentNode.id)">
+    </div>
+    <form id="form" onsubmit="return false">
+        <fieldset class="step1">
+            <legend>Zip Codes</legend>    
+        <div id="errormain2">
+            <div class="float">
+                <label for="originzip">Origin Zip Code:
+                    <br>
+                    <input class="input1 space" name="originzip" value="43212" id="originzip" autofocus required/>
+                </label>
+            </div>
+            <div class="float">
+                <label for="destzip">Destination Zip Code:
+                    <br>
+                    <input class="input1" value="09096" name="destzip" id="destzip" required/>
+                </label>
+            </div>
+        </div>
+        <div id="errormain1">
+            <ul>
+            <li><p class="hide" id="error1">X Please enter a valid origin zip code</p></li>
+            <li><p class="hide" id="error2">X Please enter a valid destination zip code</p></li>
+            </ul>
+        </div>
+        </fieldset>
+        <fieldset>
+            <legend>Number Of Boxes and Weights</legend>
+            <input type="button" id="add" onclick="duplicate()" value="Add another line" />
+            <div id="line0" class="block space bump float">
+                <label class="float"><u class="bumpss">Weight in LBS</u>
+                    <br class="number float">1.
+                    <input type="number" min="0" class="input2 weight-change" value="1" name="weight" id="weight1" required/> =
+                </label>
+                <div class="float bump">
+                    <label>Price to ship per box
+                        <br>
+                        <input class="width onebox clear" id="shipprice1box1" disabled/> x
+                    </label>
+                </div>
+                <div class="float" id="bump2">
+                    <label>Number of Boxes
+                        <br>
+                        <input type="number" min="0" class="input2 numofbox" value="1" name="numberofboxes" id="numberofboxes1" required/> =
+                    </label>
+                </div>
+                <div class="float bump3">
+                    <label>Price to ship all boxes
+                        <br>
+                        <input class="width totalfl" id="totalfl1" disabled/>
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Grand Totals</legend>
+            <input value="Submit" type="submit" onclick="calculate()" />
+            <input class="right" type="reset" value="Clear Form" />
+            <div class="block space">
+                <div class="float">
+                    <label>Total Weight in LBS
+                        <br>
+                        <input type="number" min="0" class="input2" id="grandweight" name="weighttotal" disabled/>
+                    </label>
+                </div>
+                <div class="float bump">
+                    <input class="width empty" disabled/>
+                </div>
+                <div class="float">
+                    <label>Total Number of Boxes
+                        <br>
+                        <input type="number" min="0" class="input2" name="numberofboxestotal" id="totalnumberofboxes" disabled/>
+                    </label>
+                </div>
+                <div class="float bump3">
+                    <label class="TotalPricetoShip">Total Price to Ship
+                        <br>
+                        <input class="width" name="pricetotalforallboxes" id="pricetotalforallboxes" disabled/>
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <aside id="menu">
+        <button id="menu-button">+</button>
+        <p>Built with grit by David Ciccone
+        <a id="ghlink" href="http://github.com/davidciccone">github.com/davidciccone</a></p>
+    </aside>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')
+    </script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/slider.js"></script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>-->
+</body>
+</html>
