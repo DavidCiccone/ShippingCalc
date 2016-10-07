@@ -34,13 +34,13 @@
             <div class="float">
                 <label for="originzip">Origin Zip Code:
                     <br>
-                    <input class="input1 space" name="originzip" value="43212" id="originzip" autofocus required/>
+                    <input class="input1 space" name="originzip" id="originzip" autofocus required/>
                 </label>
             </div>
             <div class="float">
                 <label for="destzip">Destination Zip Code:
                     <br>
-                    <input class="input1" value="09096" name="destzip" id="destzip" required/>
+                    <input class="input1" name="destzip" id="destzip" required/>
                 </label>
             </div>
         </div>
@@ -81,8 +81,7 @@
         </fieldset>
         <fieldset>
             <legend>Grand Totals</legend>
-            <input value="Submit" type="submit" onclick="calculate()" />
-            <input class="right" type="reset" value="Clear Form" />
+           
             <div class="block space">
                 <div class="float">
                     <label>Total Weight in LBS
@@ -105,6 +104,10 @@
                         <input class="width" name="pricetotalforallboxes" id="pricetotalforallboxes" disabled/>
                     </label>
                 </div>
+            </div>
+             <div class="submitbuttons">
+                <input value="Submit" type="submit" onclick="calculate()" />
+                <input class="right" type="reset" value="Clear Form" />
             </div>
         </fieldset>
     </form>

@@ -7,7 +7,6 @@ var form = document.getElementById('form');
 var template = document.getElementById('template');
 var appendTo = document.getElementById('line0');
 var clear = document.getElementsByClassName('clear');
-//var originZipxxx = document.getElementById('originzip');
 //calculates the sum of all elements of an array
 function cal(a, b) {
     return a + b;
@@ -51,18 +50,13 @@ function calculate() {
         } else {
             weightOfBoxError.setCustomValidity("");
         }
-
-
-
         //error handeling for number of boxes
         if (numberOfBoxes < 1) {
             numberOfBoxesError.setCustomValidity("Number of boxes must be 1 or more");
         } else {
             numberOfBoxesError.setCustomValidity("");
         }
-
     }
-
     //Retrives the shipping prices
     $.ajax({
         url: url + allData.join('') + '</RateV4Request>',
