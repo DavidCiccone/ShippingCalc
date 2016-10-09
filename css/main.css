@@ -105,7 +105,7 @@ body {
     overflow-x:hidden;
 }
 form {
-    width: 950px;
+    max-width: 950px;
 }
 
 legend {
@@ -114,12 +114,12 @@ legend {
 }
 
 .input2 {
-    width: 125px;
+    max-width: 125px;
     margin-bottom: 5px;
 }
 
 .input1 {
-    width: 175px;  
+    max-width: 175px;  
 }
 
 .step1 {
@@ -155,7 +155,7 @@ div#bump2 {
 }
 
 .width {
-    width: 165px;
+    max-width: 165px;
 }
 
 .empty {

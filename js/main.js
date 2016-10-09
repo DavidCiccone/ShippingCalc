@@ -63,7 +63,7 @@ function calculate() {
 
         success: function(data) {
             console.log(data);
-            //clears shipping costs on  each submit
+            //clears shipping costs on each submit
             $(clear).val('');
             var grandTotalWeight = [];
             var grandNumberOfBoxes = [];
@@ -71,16 +71,16 @@ function calculate() {
             var zipError = $(data).find('RateV4Response > Package > Error > Description').html();
 
             //error handeling for zip codes
-            if (zipError === 'Please enter a valid ZIP Code for the sender.  ') {
-                $('#error1').removeClass('hide');
+            if (zipError === 'Please enter a valid ZIP Code for the sender.  ' || zipError === 'The Origin ZIP Code you have entered is invalid.') {
+                $('#error1').removeClass('hidden');
             } else {
-                $('#error1').addClass('hide');
+                $('#error1').addClass('hidden');
             }
 
-            if (zipError === 'Please enter a valid ZIP Code for the recipient.  ') {
-                $('#error2').removeClass('hide');
+            if (zipError === 'Please enter a valid ZIP Code for the recipient.  ' || zipError === 'The Destination ZIP Code you have entered is invalid.') {
+                $('#error2').removeClass('hidden');
             } else {
-                $('#error2').addClass('hide');
+                $('#error2').addClass('hidden');
             }
 
             for (var i = 1; i <= number; i++) {

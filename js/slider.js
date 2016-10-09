@@ -1,4 +1,4 @@
-var element = document.getElementById("menu-button").innerHTML;
+//var element = document.getElementById("menu-button").innerHTML;
 var menuOut = 0;
 $("#menu-button").click(function() {
   if (menuOut === 0){
