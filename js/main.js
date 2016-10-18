@@ -1,6 +1,6 @@
 'use strict';
 //url to be used in the ajax call
-var url = 'http://production.shippingapis.com/ShippingApi.dll?API=RateV4&XML=<RateV4Request USERID="957000005318">';
+var url = 'https://secure.shippingapis.com/ShippingApi.dll?API=RateV4&XML=<RateV4Request USERID="957000005318">';
 var counter = 1;
 var number = 1;
 var form = document.getElementById('form');
@@ -60,7 +60,8 @@ function calculate() {
     //Retrives the shipping prices
     $.ajax({
         url: url + allData.join('') + '</RateV4Request>',
-
+        type: "GET",
+        dataType: "xml",
         success: function(data) {
             console.log(data);
             //clears shipping costs on each submit
