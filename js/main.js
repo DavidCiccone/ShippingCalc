@@ -60,8 +60,6 @@ function calculate() {
     //Retrives the shipping prices
     $.ajax({
         url: url + allData.join('') + '</RateV4Request>',
-        type: "GET",
-        dataType: "xml",
         success: function(data) {
             console.log(data);
             //clears shipping costs on each submit
