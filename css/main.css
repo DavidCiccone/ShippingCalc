@@ -203,11 +203,19 @@ p.number {
 }
 
 #add{
-    float:right;
     font-size: 10px;
-    
+    display: block;
+    margin-bottom: 15px;    
 }
 
+.add {  
+    font-size: 10px;
+    display: block;
+}
+
+.float-right {
+    float: right;
+}
 .remove:hover {
    -webkit-filter: invert(1);
    filter: invert(1);

@@ -42,9 +42,11 @@ function calculate() {
             '<Girth>1</Girth>' +
             '</Package>';
         allData.push(data);
-
+        
+        //error handeling for weight
         if (weightOfBox > 70) {
             weightOfBoxError.setCustomValidity("Weight must be 70 lbs or less");
+            
         } else if (weightOfBox < 1) {
             weightOfBoxError.setCustomValidity("Weight must be greater then 0 lbs");
         } else {
@@ -158,6 +160,11 @@ function numbers() {
         myFunction();
         $(this).attr("id", "totalfl" + index);
     });
+     stored($(".xxx"), function(index) {
+        var idnum = index + 1;
+        $(this).attr("id", "line" + idnum);
+
+    });
 }
 
 function addTo() {
@@ -171,6 +178,14 @@ function removeLine(id) {
     numbers();
 }
 
+//removes all added lines
+function removeAllLines() {
+    for(var i = 1; i <= 25; i++){
+        $("#line" + i).remove();
+    }
+    number = 1;
+}
+
 //Duplicates the input box lines
 function duplicate() {
     var clone = template.cloneNode(true);
@@ -179,5 +194,6 @@ function duplicate() {
         appendTo.parentNode.appendChild(clone);
         numbers();
         addTo();
+        clone.classList.add("xxx");
     }
 }

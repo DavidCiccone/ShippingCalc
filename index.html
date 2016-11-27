@@ -19,7 +19,7 @@
     <!-- Add your site or application content here -->
     <h1>Shipping Calculator</h1>
     <h3>Shipping Method: USPS Ground</h3>
-    <div id="template" class="block xxx">
+    <div id="template" class="block none">
         <p class="numbers"></p>
         <input type="number" min="0" class="input2 weight-change" value="1" name="weight" id="weight" required/> =
         <input class="width onebox clear" name="shipprice1box" disabled/> x
@@ -34,7 +34,7 @@
             <div class="float">
                 <label for="originzip">Origin Zip Code:
                     <br>
-                    <input class="input1 space" name="originzip" id="originzip" autofocus required/>
+                    <input class="input1 space" value="43212" name="originzip" id="originzip" autofocus required/>
                 </label>
             </div>
             <div class="float">
@@ -53,7 +53,10 @@
         </fieldset>
         <fieldset>
             <legend>Number Of Boxes and Weights</legend>
-            <input type="button" id="add" onclick="duplicate()" value="Add another line" />
+                <div class="float-right">
+                    <input type="button" id="add" onclick="duplicate()" value="Add another line" />
+                    <input type="button" class="add" onclick="removeAllLines()" value="Remove all lines" />                   
+                </div>
             <div id="line0" class="block space bump float">
                 <label class="float"><u class="bumpss">Weight in LBS</u><br>
                     <p class="number float">1.</p>
@@ -76,6 +79,7 @@
                         <br>
                         <input class="width totalfl" id="totalfl1" disabled/>
                     </label>
+                    
                 </div>
             </div>
         </fieldset>
