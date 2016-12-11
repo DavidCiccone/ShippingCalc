@@ -11,7 +11,7 @@ var clear = document.getElementsByClassName('clear');
 function cal(a, b) {
     return a + b;
 }
-
+var stored = $.each;
 //Main function to calculates all values
 function calculate() {
 
@@ -131,11 +131,6 @@ function calculate() {
     });
 }
 
-var stored = $.each;
-var myFunction = function() {
-    $(this).removeAttr("id");
-};
-
 function numbers() {
     //changes the numbers for the line items
     stored($(".numbers"), function(index, value) {
@@ -143,32 +138,22 @@ function numbers() {
         $(value).empty();
         $(value).append(num);
     });
-    //changes the ids of the weight input box
-    stored($(".weight-change"), function(index) {
-        myFunction();
-        $(this).attr("id", "weight" + index);
-    });
-    stored($(".onebox"), function(index) {
-        myFunction();
-        $(this).attr("id", "shipprice1box" + index);
-    });
-    stored($(".numofbox"), function(index) {
-        myFunction();
-        $(this).attr("id", "numberofboxes" + index);
-    });
-    stored($(".totalfl"), function(index) {
-        myFunction();
-        $(this).attr("id", "totalfl" + index);
-    });
+    
      stored($(".xxx"), function(index) {
         var idnum = index + 1;
         $(this).attr("id", "line" + idnum);
-
     });
-}
 
-function addTo() {
-    ++number;
+     function updateAttr (selector, prefix) {
+        $(selector).attr("id", function (index) { 
+            return prefix + index; 
+        }); 
+     }
+     //changes the ids of the input boxes
+     updateAttr(".weight-change", "weight");
+     updateAttr(".onebox", "shipprice1box");
+     updateAttr(".numofbox", "numberofboxes");
+     updateAttr(".totalfl", "totalfl");
 }
 
 //removed line on click of the X
@@ -193,7 +178,7 @@ function duplicate() {
         clone.id = 'line' + number;
         appendTo.parentNode.appendChild(clone);
         numbers();
-        addTo();
+        ++number;
         clone.classList.add("xxx");
     }
 }
